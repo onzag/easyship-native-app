@@ -4,7 +4,6 @@ let {
   Text,
   View,
   StyleSheet,
-  Platform,
   Image
 } = React;
 

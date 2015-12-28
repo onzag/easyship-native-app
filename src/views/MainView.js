@@ -1,10 +1,11 @@
 let React = require('react-native');
 
 let {
-  Text,
-  View
+  View,
+  StyleSheet
 } = React;
 let Navbar = require('./elements/Navbar');
+let TabBar = require('./elements/TabBar');
 
 let MainView = React.createClass({
   propTypes:{
@@ -19,9 +20,17 @@ let MainView = React.createClass({
     return (
       <View>
         <Navbar/>
+        <TabBar elements={['Sent','Incoming']} activeIndex={0} onIndexChange={this.onIndexChange}/>
       </View>
     );
+  },
+  onIndexChange:function(nind){
+    
   }
+});
+
+var styles = StyleSheet.create({
+
 });
 
 module.exports = MainView;
