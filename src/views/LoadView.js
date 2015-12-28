@@ -1,0 +1,69 @@
+let React = require('react-native');
+
+let {
+  View,
+  StyleSheet,
+  Image,
+  Animated,
+  Easing
+} = React;
+
+let LoadView = React.createClass({
+  getInitialState:function(){
+    return {
+      'angle':new Animated.Value(0),
+    };
+  },
+  animate:function(){
+    this.state.angle.setValue(0);
+    Animated.timing(
+       this.state.angle,
+       {
+         toValue: 360,
+         duration: 2000,
+         easing: Easing.linear
+       },
+    ).start();
+    setTimeout(this.animate,2000);
+  },
+  render:function(){
+    return(
+      <View style={styles.view}>
+        <View style={styles.container}>
+          <Animated.Image source={require('./elements/img/spinner.png')}
+            style={[styles.anim,{
+              'transform':[{'rotate': this.state.angle.interpolate({
+                  inputRange: [0, 360],
+                  outputRange: [
+                    '0deg', '360deg'
+                  ],
+                })}]
+            }]}></Animated.Image>
+        </View>
+      </View>
+    )
+  },
+  componentDidMount:function(){
+    this.animate();
+  }
+})
+
+var styles = StyleSheet.create({
+  view:{
+    flex:1,
+    backgroundColor:'#64B5F6',
+    flexDirection:'column',
+    alignItems:'center'
+  },
+  container:{
+    flex:1,
+    flexDirection:'row',
+    alignItems:'center'
+  },
+  anim:{
+    width:100,
+    height:100,
+  }
+});
+
+module.exports = LoadView;
