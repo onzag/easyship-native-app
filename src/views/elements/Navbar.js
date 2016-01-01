@@ -22,7 +22,7 @@ let Navbar = React.createClass({
       </View>
     )
   }
-})
+});
 
 var styles = StyleSheet.create({
   navbar:{
@@ -38,7 +38,7 @@ var styles = StyleSheet.create({
     flex:0,
     marginTop:5,
     alignSelf:'center',
-    width:92.5,
+    width:100,
     height:25
   },
   logoparent:{

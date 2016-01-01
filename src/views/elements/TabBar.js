@@ -54,7 +54,7 @@ let TabBar = React.createClass({
 
 var styles = StyleSheet.create({
   tabbar:{
-    flex:1,
+    flex:0.75,
     backgroundColor:'#2196F3',
     borderBottomColor:'#0D47A1',
     borderBottomWidth:1,
